@@ -10,6 +10,8 @@ public class EnemyNavigation : MonoBehaviour
 
     [SerializeField] GameObject TheBody;
 
+    [SerializeField] AudioClip BonkSFX;
+
     public LayerMask groundMask;
 
     public Transform target;
@@ -57,6 +59,7 @@ public class EnemyNavigation : MonoBehaviour
         {
             Debug.Log("Player hit enemy");
             Pancaked = true;
+            SoundFXManager.Instance.PlaySoundFXClip(BonkSFX, transform, 1f);
             levelManager.PlayerWon();
         }
     }

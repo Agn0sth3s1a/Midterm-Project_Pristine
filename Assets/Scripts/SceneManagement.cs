@@ -3,7 +3,9 @@ using UnityEngine.SceneManagement;
 
 public class SceneManagement : MonoBehaviour
 {
-    [SerializeField] private string SceneToLoad;
+    [SerializeField] private string SceneToLoad; 
+    
+    [SerializeField] AudioClip ButtonSound;
 
     public void swapScene()
     {
@@ -13,5 +15,10 @@ public class SceneManagement : MonoBehaviour
     public void exitButton()
     {
         Application.Quit();
+    }
+
+    public void buttonPressed()
+    {
+        SoundFXManager.Instance.PlaySoundFXClip(ButtonSound, transform, 1f);
     }
 }
